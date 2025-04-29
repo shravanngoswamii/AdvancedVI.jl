@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches:
-      - main
+      - master
     tags: '*'
   pull_request:
 
@@ -15,7 +15,7 @@ concurrency:
 
 permissions:
   contents: write
-  pull-requests: read
+  pull-requests: write
 
 jobs:
   docs:
@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Build and deploy Documenter.jl docs
-        uses: TuringLang/actions/DocsDocumenter@main
+        uses: shravanngoswamii/actions/DocsDocumenter@main
         
       - name: Run doctests
         shell: julia --project=docs --color=yes {0}
